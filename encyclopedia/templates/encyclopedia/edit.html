@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit | Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>Edit Page</h1>
+
+    <form method="POST">
+            {% csrf_token %}
+        <div class="form-group">
+            <label for="entry_title">Entry Title:</label>
+            <input type="text" class="form-control-plaintext" id="entry_title" placeholder="{{ entry_title }}" name="entry_title" value="{{ entry_title }}" readonly>
+        </div>
+        <div class="form-group">
+            <label for="entry_content">Entry Content in Markdown format:</label>
+            <textarea class="form-control" id="entry_content" rows="3" name="content">{{ content }}</textarea>
+        </div>
+        <input type="submit" value="Save Entry">
+    </form>
+
+{% endblock %}
